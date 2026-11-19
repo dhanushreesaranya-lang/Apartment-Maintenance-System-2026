@@ -1,0 +1,7 @@
+Add your own genuine screenshots after running:
+1. pgAdmin showing apartment_db tables.
+2. Java terminal showing successful database connection and menu.
+3. Resident/apartment records.
+4. Payment and complaint reports.
+5. Python charts.
+Do not use fabricated screenshots as evidence.
