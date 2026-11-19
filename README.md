@@ -1,50 +1,35 @@
-# Apartment Maintenance and Resident Complaint Management System
+# Apartment Maintenance & Complaint Management System
 
-Integrated college project: Java 17 + PostgreSQL + JDBC + Python/Pandas/Matplotlib.
+Java 17, Maven and PostgreSQL command-line application for apartment administration.
 
-## Features
-- Resident and apartment management
-- Monthly maintenance bills and payment status
-- Complaint registration and status tracking (OPEN, IN_PROGRESS, RESOLVED)
-- Payment and complaint reports
-- CSV export and Python visualizations
+## Confirmed functions
+- Add/list residents
+- Add/list apartments
+- Create maintenance bills
+- Record payments
+- Register/update/list complaints
+- Export supported reports as CSV
 
-## Requirements
-Java JDK 17+, PostgreSQL with pgAdmin 4, Apache Maven, Python 3.10+.
+## Stack
+Java 17 • Apache Maven • PostgreSQL • JDBC • Python (optional data retrieval, preprocessing and charts)
 
-## Database setup
-1. Open pgAdmin 4 and connect to your PostgreSQL server.
-2. Create a database named `apartment_db`.
-3. Open Query Tool for `apartment_db`.
-4. Execute `database/schema.sql`.
-5. Optionally execute `database/sample_data.sql`.
+## Run Java application
+1. Start PostgreSQL and confirm `apartment_db` exists.
+2. Configure the local `db.properties` file expected by the Java application.
+3. Open terminal in `java-app`.
+4. Run `mvn clean package` then `mvn exec:java`.
 
-## Configure Java
-Open `java-app/src/main/resources/db.properties`.
-Set your PostgreSQL username and password. Default username is usually `postgres`.
-Replace `CHANGE_ME` with the password you created during installation. Never share your password.
+## Python analysis
+From `python/`: install `requirements.txt`; copy `.env.example` to `.env` and enter local DB credentials; run `python retrieve_database.py`, `python preprocess_data.py`, then `python charts_from_csv.py`.
 
-## Run Java
-Open a terminal inside `java-app`:
-```bash
-mvn clean compile
-mvn exec:java
-```
-Maven downloads the PostgreSQL JDBC driver on the first build. If `mvn` is not recognized, install Apache Maven and add it to PATH.
+## Security
+Never commit a real database password, `.env`, sensitive resident data or database dumps. The `.gitignore` excludes local secrets and build output.
 
-## Run Python charts
-First use Java menu option 10 to export CSV reports. Then:
-```bash
-cd python
-python -m pip install -r requirements.txt
-python reports.py
-```
-Charts are saved to `python/output/`.
+## Documentation
+See `documents/`, `diagrams/`, `sql/` and `testing/`.
 
-## Menu
-1 Add resident | 2 List residents | 3 Add apartment | 4 List apartments
-5 Create maintenance bill | 6 Record payment | 7 Register complaint
-8 Update complaint status | 9 List complaints | 10 Export reports | 0 Exit
+## Important accuracy note
+The ER diagram and relational model are reference designs, not verified exports of the current database. Run `sql/01_inspect_existing_schema.sql` and update names/relationships to match the live schema. Test cases show `NOT RUN` until executed; replace with actual observed results.
 
-## Submission
-Run and test the application on your computer, then add genuine screenshots to `evidence/`. Do not submit placeholder screenshots as execution proof.
+## GitHub
+Create a repository, copy this pack and the existing `java-app` source into it, verify secrets are excluded, then commit and push. Add the resulting repository URL to your college submission.

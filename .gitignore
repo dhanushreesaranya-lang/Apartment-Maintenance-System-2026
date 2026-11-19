@@ -1,14 +1,1 @@
-# Java / Maven
-java-app/target/
-*.class
-
-# Python
-__pycache__/
-.venv/
-python/output/*.png
-python/data/*.csv
-
-# Local credentials
-java-app/src/main/resources/db.properties
-.env
-*.log
+.env\n*.properties\n!.env.example\ntarget/\n__pycache__/\n*.pyc\noutput/\n.vscode/\n.idea/\n

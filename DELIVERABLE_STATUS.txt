@@ -1,0 +1,21 @@
+PROJECT: Apartment Maintenance & Complaint Management System
+COLLEGE: Vellalar College of Engineering and Technology
+DEPARTMENT: Information Technology
+
+Included in this pack:
+- SRS document
+- Use Case Diagram (PNG and editable DOT source)
+- Class Diagram
+- System Architecture diagram
+- ER diagram reference
+- SQL schema inspection script and normalization notes
+- Python database retrieval, preprocessing, and CSV chart scripts
+- Testing document
+- README.md and .gitignore
+
+IMPORTANT BEFORE FINAL SUBMISSION:
+1. Add the actual Java/Maven project source folder (java-app, pom.xml, src, etc.). It is not included in this pack because the final project ZIP has not been uploaded in this chat.
+2. Verify the ER diagram and SQL scripts against the final PostgreSQL schema.
+3. Run the Python scripts with the correct local database credentials and save actual chart output images.
+4. Review testing actual results and replace any unexecuted/placeholder results with real results.
+5. Upload to your own GitHub account; no GitHub repository has been created or uploaded by this pack.
