@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apartment Management System</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial;background:#f3f5fa;color:#222}
+header{background:#243b64;color:white;padding:22px}
+header h1{margin:0}
+.layout{display:flex;min-height:90vh}
+nav{background:#192b49;width:220px;padding:20px}
+nav button{display:block;width:100%;padding:14px;margin:8px 0;
+background:transparent;color:white;border:0;text-align:left;
+cursor:pointer;border-radius:6px;font-size:15px}
+nav button:hover{background:#385784}
+main{padding:28px;flex:1}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px}
+.card{background:white;padding:22px;border-radius:12px;
+box-shadow:0 2px 8px #ddd}
+.card h2{color:#315b99}
+.panel{background:white;padding:22px;border-radius:12px;margin-top:22px}
+.page{display:none}
+.page.active{display:block}
+table{width:100%;border-collapse:collapse;margin-top:15px}
+th,td{padding:12px;border-bottom:1px solid #ddd;text-align:left}
+th{background:#eaf0fa}
+input,select{padding:10px;margin:7px 0;width:100%;
+border:1px solid #bbb;border-radius:5px}
+.action{background:#315b99;color:white;padding:11px 18px;
+border:0;border-radius:5px;cursor:pointer}
+</style>
+</head>
+<body>
+<header>
+<h1>Apartment Maintenance Management System</h1>
+<p>Manage residents, apartments and complaints</p>
+</header>
+<div class="layout">
+<nav>
+<button onclick="showPage('dashboard')">Dashboard</button>
+<button onclick="showPage('residents')">Residents</button>
+<button onclick="showPage('apartments')">Apartments</button>
+<button onclick="showPage('complaints')">Complaints</button>
+<button onclick="showPage('payments')">Payments</button>
+</nav>
+<main>
+<section id="dashboard" class="page active">
+<h2>Dashboard</h2>
+<div class="cards">
+<div class="card"><h2>3</h2>Residents</div>
+<div class="card"><h2>3</h2>Apartments</div>
+<div class="card"><h2>0</h2>Complaints</div>
+<div class="card"><h2>0</h2>Pending Payments</div>
+</div>
+<div class="panel">
+<h3>Welcome!</h3>
+<p>Welcome to Apartment Maintenance Management System.</p>
+</div>
+</section>
+
+<section id="residents" class="page">
+<h2>Residents Management</h2>
+<div class="panel">
+<table>
+<tr><th>ID</th><th>Name</th><th>Apartment</th></tr>
+<tr><td>1</td><td>Arun Kumar</td><td>A101</td></tr>
+<tr><td>2</td><td>Priya</td><td>A102</td></tr>
+<tr><td>3</td><td>Karthik</td><td>A103</td></tr>
+</table>
+</div>
+</section>
+
+<section id="apartments" class="page">
+<h2>Apartments</h2>
+<div class="panel">
+<table>
+<tr><th>ID</th><th>Apartment No</th><th>Floor</th><th>Status</th></tr>
+<tr><td>1</td><td>A101</td><td>1</td><td>Occupied</td></tr>
+<tr><td>2</td><td>A102</td><td>1</td><td>Occupied</td></tr>
+<tr><td>3</td><td>A103</td><td>2</td><td>Occupied</td></tr>
+</table>
+</div>
+</section>
+
+<section id="complaints" class="page">
+<h2>Register Complaint</h2>
+<div class="panel">
+<form onsubmit="addComplaint(event)">
+<input id="resident" placeholder="Resident Name" required>
+<input id="title" placeholder="Complaint Title" required>
+<input id="description" placeholder="Description" required>
+<select id="priority">
+<option>Low</option><option>Medium</option><option>High</option>
+</select>
+<button class="action">Submit Complaint</button>
+</form>
+<h3>Complaint List</h3>
+<table id="complaintTable">
+<tr><th>Resident</th><th>Title</th><th>Priority</th></tr>
+</table>
+</div>
+</section>
+
+<section id="payments" class="page">
+<h2>Payments</h2>
+<div class="panel">
+<p>Payment management dashboard</p>
+<p>Database integration will be connected in the next step.</p>
+</div>
+</section>
+</main>
+</div>
+<script>
+function showPage(id){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+function addComplaint(e){
+e.preventDefault();
+let row=document.getElementById('complaintTable').insertRow();
+row.insertCell(0).textContent=document.getElementById('resident').value;
+row.insertCell(1).textContent=document.getElementById('title').value;
+row.insertCell(2).textContent=document.getElementById('priority').value;
+e.target.reset();
+}
+</script>
+</body>
+</html>
