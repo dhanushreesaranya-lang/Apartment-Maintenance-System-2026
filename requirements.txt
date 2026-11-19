@@ -1,0 +1,1 @@
+pandas>=2.2\nmatplotlib>=3.9\n
