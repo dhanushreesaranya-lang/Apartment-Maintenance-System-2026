@@ -1,1 +1,1 @@
-Generated PNG charts are saved here.\n
+Java menu option 10 exports the CSV reports into this folder.\n

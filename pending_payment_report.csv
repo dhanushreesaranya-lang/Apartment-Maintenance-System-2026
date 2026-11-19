@@ -1,0 +1,2 @@
+"bill_id","apartment_no","block_number","bill_month","amount","paid_amount","pending_amount","payment_status"
+"1","A-101","A","2026-11-01","2500.00","0.00","2500.00","PENDING"
